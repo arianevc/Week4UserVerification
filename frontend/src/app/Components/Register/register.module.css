@@ -1,0 +1,103 @@
+
+.container{
+    margin: 30px auto;
+    width: 500px;
+    /* border: 1px solid black; */
+    text-align: center;
+    padding: 20px;
+    /* background-color: rgb(199, 199, 199); */
+
+                background-color: #212121;
+ box-shadow: 15px 15px 30px #191919,
+              -15px -15px 30px #292929;
+ transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+              transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.container:hover {
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    transform: scale(1.05);
+   }
+
+.inputFiedls{
+    text-align: left;
+    margin: 10px;
+    /* border-radius: 5px; */
+
+}
+
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.fieldName{
+    font-size: small;
+    font-weight: 600;
+    color: rgb(198, 198, 198);
+}
+
+.formContent input{
+    background-color: rgb(238, 238, 238);
+    height: 30px;
+    border: none;
+    outline: none;
+}
+
+.submitButton{
+    max-width: fit-content;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.submitButton:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .submitButton:active {
+    transform: translateY(-1px);
+  }
+  
+.errorMessage {
+    color: red;
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+
+.loginPrompt {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.loginLink {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.loginLink:hover {
+    text-decoration: underline;
+}
+
