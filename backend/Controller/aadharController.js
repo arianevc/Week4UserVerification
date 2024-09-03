@@ -5,9 +5,9 @@ exports.verifyaadhaar = async (req, res) => {
   const { aadhar } = req.body;
   const options = {
     method: 'POST',
-    url: process.env.AADHAAR_API,
+    url:'https://api.apyhub.com/validate/aadhaar',
     headers: {
-      'apy-token': process.env.AADHAAR_API_TOKEN,
+      'apy-token': 'APY0pLS1C7lciol726WfAyMEKANgRzSExQd3GLBwICBJMmEbywSd1TheAruBDilVcl',
       'Content-Type': 'application/json'
     },
     data: { aadhaar:aadhar }

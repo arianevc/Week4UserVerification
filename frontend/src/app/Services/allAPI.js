@@ -4,6 +4,7 @@ import axios from 'axios';
 
 //register user
 export const registerAPI = async(user) => {
+    console.log("running")
     return await commonAPI("post",`${serverURL}/register`,user,"")
 }
 

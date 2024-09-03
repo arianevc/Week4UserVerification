@@ -2,9 +2,12 @@
 
 const users = require('../Models/userSchema');
 const otpGenerator = require('otp-generator');
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const accountSid = 'AC80c4d3349f7d796f3357a9d3d5d00622';
+// const authToken = '3d1bf215be86d51077a3dc36415cfd1f';
+const accountSid='ACd799d26cdf70c180841e31c63821fe01'
+const authToken='6b5483aae536bff12b7bb78738c2aedb'
 const client = require('twilio')(accountSid, authToken);
+
 
 // Function to validate and format phone number
 const validateAndFormatPhoneNumber = (phoneNumber) => {

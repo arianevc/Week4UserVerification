@@ -8,6 +8,7 @@ const otpGenerator = require('otp-generator')
 
 exports.register = async(req,res) => {
     const {name,email,phone,aadhar,dob,password} = req.body;
+    console.log("hey")
     try{
         const existingUser = await users.findOne({email})
         if(existingUser){

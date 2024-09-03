@@ -20,8 +20,8 @@ exports.emailVerify = async (req, res) => {
                 secure: true,
                 port: 465,
                 auth: {
-                    user: process.env.email_id, 
-                    pass: process.env.pass_key
+                    user: 'arianevc6001@gmail.com', 
+                    pass: 'yetw tbtk mhkv nonq'
                 }
             });
 
