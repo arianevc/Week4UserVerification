@@ -14,11 +14,11 @@
               transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
 }
 
-.container:hover {
+/* .container:hover {
     border-bottom-right-radius: 50px;
     border-top-left-radius: 50px;
     transform: scale(1.05);
-   }
+   } */
 
 .inputFiedls{
     text-align: left;

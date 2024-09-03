@@ -61,7 +61,7 @@
 }
 
 .header{
-    color: aliceblue;
+    color: rgb(0, 1, 1);
     font-weight: 600;
 }
 .subheader{
@@ -82,10 +82,10 @@
     outline: none;
     text-align: center;
     font-size: 1.5em;
-    color: #ffffff; /* Changed to black for better visibility */
+    color: #0b0202; /* Changed to black for better visibility */
     border-radius: 0.3em;
     border: 1px solid rgba(253, 253, 253, 0.363);
-    background-color: rgb(255 255 255 / 0.05);
+    background-color: rgba(8, 6, 6, 0.327);
 }
 
 .inputfields input:focus {
