@@ -2,8 +2,10 @@
 
 const users = require('../Models/userSchema');
 const otpGenerator = require('otp-generator');
-const accountSid=process.env.TWILIO_ACCOUNT_SID
-const authToken=process.env.TWILIO_AUTH_TOKEN
+// const accountSid=process.env.TWILIO_ACCOUNT_SID
+const accountSid='const accountSid=process.env.TWILIO_ACCOUNT_SID'
+// const authToken=process.env.TWILIO_AUTH_TOKEN
+const authToken='3d1bf215be86d51077a3dc36415cfd1f'
 const client = require('twilio')(accountSid, authToken);
 
 
