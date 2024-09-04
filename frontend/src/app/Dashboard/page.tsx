@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import React, { useEffect } from 'react';
@@ -8,14 +7,23 @@ import { RootState } from '@/app/Redux/store';
 import { useRouter } from 'next/navigation';
 import { setUserDetails } from '../Redux/userSlice';
 import styles from './dashboard.module.css';
+import { setVerificationStatus } from '../Redux/userSlice';
 
 const Dashboard = () => {
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const router = useRouter();
 
+  // const sessionUser = sessionStorage.getItem('user');
+  //       if (sessionUser) {
+  //           // Step 2: Parse the user object
+  //           const user = JSON.parse(sessionUser);
+        
+  //           // Step 3: Extract the email from the parsed object
+  //           // const userEmail = user.email;
+  //       }
+
   useEffect(() => {
-    // Check if user data exists in session storage
     const sessionUser = sessionStorage.getItem('user');
     if (sessionUser) {
       dispatch(setUserDetails(JSON.parse(sessionUser)));
@@ -27,12 +35,8 @@ const Dashboard = () => {
   };
 
   const handleLogout = () => {
-    sessionStorage.clear(); // Clear the session storage
-    router.push('/login'); // Redirect to login page
-  };
-
-  const handleVerifyAadhar = () => {
-    router.push('/Aadhar'); 
+    sessionStorage.clear();
+    router.push('/login');
   };
 
   const renderCard = (title: string, verified: boolean, path: string, info: string, showVerifyButton: boolean) => (
@@ -45,8 +49,8 @@ const Dashboard = () => {
       <div className={`${styles.checkmark} ${verified ? styles.checked : styles.notChecked}`}></div>
       <p>{verified ? 'Verified' : 'Not Verified'}</p>
       {showVerifyButton && !verified && (
-        <button className={styles.verifyButton} onClick={handleVerifyAadhar}>
-          Verify Aadhar
+        <button className={styles.verifyButton} onClick={() => handleCardClick(path)}>
+          Verify {title}
         </button>
       )}
     </div>
@@ -80,11 +84,43 @@ const Dashboard = () => {
         )}
         {renderCard(
           'Aadhar',
-          user.aadhar_verify ?? false,
+          (user.isVerified.aadhar || user.aadhar_verify) ?? false,
           '/Aadhar',
           `Aadhar: ${user.aadhar}`,
           true
         )}
+        {renderCard(
+          'GST',
+          (user.gst_verify || user.isVerified.gst)?? false,
+          '/Gst',
+          `GST: ${user.gst}`,
+          true
+        )}
+        {renderCard(
+          'Bank Account',
+          (sessionStorage.getItem('account_verified') === 'true' || user.bank_verify) ?? false,
+          // user.bank_verify ?? false,
+          '/Bank',
+          `Bank Account: ${user.bank}`,
+          true
+        )}
+
+        {renderCard(
+          'PAN',
+          (user.isVerified.pan || user.pan_verify || sessionStorage.getItem('pan_verified') === 'true')  ?? false,
+          '/Pan',
+          `PAN: ${user.pan}`,
+          true
+        )}
+
+        {renderCard(
+          'Address',
+          (user.address_verify || sessionStorage.getItem('address_verified') === 'true')?? false,
+          '/Address',
+          `Address: ${user.address}`,
+          true
+        )}
+        
       </div>
     </div>
   );

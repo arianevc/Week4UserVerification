@@ -41,3 +41,33 @@ export const verifyAadharAPI = async (reqBody) => {
     }
 };
 
+export const verifyAddressAPI = async(addr,reqBody) => {
+    return await commonAPI("get",`${serverURL}/pincode/${addr}`,reqBody,"")
+};
+
+// PAN Verification API
+export const verifyPanAPI = async (data) => {
+    try {
+        const response = await axios.post(`${serverURL}/verify-pan`, data);
+        return response;
+
+    } catch (error) {
+        console.error('Error in verifyPanAPI:', error);
+        throw error;
+    }
+};
+//verify gst
+export const verifyGstAPI = async(reqBody,reqHeader) => {
+    console.log("Tryn to verify GST")
+    return await commonAPI("post",`${serverURL}/verify-gst`,reqBody,reqHeader)
+};
+
+
+export const verifyAccountAPI = async (reqBody) => {
+    try {
+      const response = await axios.post(`${serverURL}/bank-account`, reqBody);
+      return response;
+    } catch (error) {
+      throw new Error("Failed to verify Account");
+    }
+  };

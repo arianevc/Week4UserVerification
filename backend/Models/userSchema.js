@@ -34,7 +34,46 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+    address:{
+        type:String,
+        required:false,
+        default:""
+
+    },
+    address_verify:{
+        type:Boolean,
+        default:false
+    },
+    pan:{
+        type:String,
+        required:false,
+        default:""
+    },
+    pan_verify:{
+        type:Boolean,
+        default:false    
+    },
+    gst:{
+        type:String,
+        required:false,
+        default:""
+
+    },
+    gst_verify:{
+        type:Boolean,
+        default:false
+    },
+    bank:{
+        type:String,
+        required:false,
+        default:""
+
+    },
+    bank_verify:{
+        type:Boolean,
+        default:false
+    },
 })
 
 const users = mongoose.model('users',userSchema)

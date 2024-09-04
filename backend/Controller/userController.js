@@ -24,7 +24,13 @@ exports.register = async(req,res) => {
                 aadhar,
                 aadhar_verify:false,
                 dob,
-                password
+                password,
+                // gst,
+                // gst_verify:false,
+                // bank,
+                // bank_verify:false,
+                // pan,
+                // pan_verify:false
             })
             await newUser.save()
             res.status(200).json(newUser)
@@ -62,6 +68,9 @@ exports.login = async (req, res) => {
             email_verify: user.email_verify,
             phone_verify: user.phone_verify,
             aadhar_verify: user.aadhar_verify,
+            // gst_verify:user.gst_verify,
+            // bank_verify:user.bank_verify,
+            // pan_verify:user.pan_verify
         };
 
         res.status(200).json({ user: req.session.user });

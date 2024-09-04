@@ -56,7 +56,7 @@ function PhoneVerification() {
                 setError('');
                 setIsOtpVerified(true); // Set OTP verification status to true
                 setTimeout(() => {
-                    router.push('/Dashboard'); // Redirect to dashboard after success
+                    router.push('/login'); // Redirect to dashboard after success
                 }, 1000); 
             } else {
                 setError('Failed to verify OTP. Please check the OTP and try again.');
