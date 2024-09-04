@@ -3,7 +3,7 @@
 const users = require('../Models/userSchema');
 const otpGenerator = require('otp-generator');
 // const accountSid=process.env.TWILIO_ACCOUNT_SID
-const accountSid='const accountSid=process.env.TWILIO_ACCOUNT_SID'
+const accountSid='AC80c4d3349f7d796f3357a9d3d5d00622'
 // const authToken=process.env.TWILIO_AUTH_TOKEN
 const authToken='3d1bf215be86d51077a3dc36415cfd1f'
 const client = require('twilio')(accountSid, authToken);
@@ -47,7 +47,7 @@ exports.sendPhoneOtp = async (req, res) => {
     try {
         await client.messages.create({
             body: `Your OTP for phone verification is ${phoneOtp}`,
-            // messagingServiceSid: 'MGb1474090018602d4dc6a8e45d33a592d',
+            messagingServiceSid: 'MGb1474090018602d4dc6a8e45d33a592d',
             to: formattedPhone
         });
 
