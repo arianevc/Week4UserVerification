@@ -47,7 +47,7 @@ exports.sendPhoneOtp = async (req, res) => {
     try {
         await client.messages.create({
             body: `Your OTP for phone verification is ${phoneOtp}`,
-            messagingServiceSid: 'MGb1474090018602d4dc6a8e45d33a592d',
+            // messagingServiceSid: 'MGb1474090018602d4dc6a8e45d33a592d',
             to: formattedPhone
         });
 
